@@ -13,7 +13,7 @@ public class Scrabble {
         File dictionary = new File(args[0]);
 
     // specify available tiles to match
-        String tiles = args[1];
+        String tiles = alphabetize(args[1]);
 
 	// search for words and their anagrams
         Map<String, Set<String>> groups = new HashMap<>();
@@ -24,9 +24,8 @@ public class Scrabble {
             }
         } catch (FileNotFoundException ex) {}
 
-        for (Set<String> group : groups.values())
-            if (group.size() >= 2)
-                System.out.println(group);
+        if (groups.containsKey(tiles))
+            System.out.println(groups.get(tiles));
     }
 
     private static String alphabetize(String s) {

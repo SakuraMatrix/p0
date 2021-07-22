@@ -18,11 +18,6 @@ package() {
     jar cfe app.jar Scrabble Scrabble.class
 }
 
-run() {
-    compile
-    java Scrabble
-}
-
 for step in "$@"
 do
     "$step"
