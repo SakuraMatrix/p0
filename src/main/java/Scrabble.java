@@ -28,8 +28,8 @@ public class Scrabble {
             System.out.println(groups.get(tiles));
     }
 
-    private static String alphabetize(String s) {
-        char[] letters = s.toCharArray();
+    public static String alphabetize(String word) {
+        char[] letters = word.toCharArray();
         Arrays.sort(letters);
         return new String(letters);
     }
