@@ -1,3 +1,5 @@
+import domain.Word;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -13,24 +15,27 @@ public class Scrabble {
         File dictionary = new File(args[0]);
 
     // specify available tiles to match
-        String tiles = alphabetize(args[1]);
+        String tiles = alphabetize(args[1]).get();
 
 	// search for words and their anagrams
-        Map<String, Set<String>> groups = new HashMap<>();
+        Map<Word, Set<Word>> groups = new HashMap<>();
         try (Scanner s = new Scanner(dictionary)) {
             while (s.hasNext()) {
-                String word = s.next();
-                groups.computeIfAbsent(alphabetize(word), (x) -> new TreeSet<>()).add(word);
+                String value = s.next();
+                Word word = Word.of(value);
+                groups.computeIfAbsent(word.sorted(), (x) -> new TreeSet<>()).add(word);
             }
-        } catch (FileNotFoundException ex) {}
+        } catch (FileNotFoundException ex) {
+            System.err.println("Failed to parse the file.");
+        }
 
-        if (groups.containsKey(tiles))
-            System.out.println(groups.get(tiles));
+        if (groups.containsKey(Word.of(tiles)))
+            System.out.println(groups.get(Word.of(tiles)));
     }
 
-    public static String alphabetize(String word) {
+    public static Word alphabetize(String word) {
         char[] letters = word.toCharArray();
         Arrays.sort(letters);
-        return new String(letters);
+        return new Word(Arrays.toString(letters));
     }
 }
