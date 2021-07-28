@@ -3,9 +3,8 @@ package domain;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Word implements Comparable<Word>{
-    private String value;
-    private int score;
+public class Word implements Wordable<Word>{
+    private final String value;
 
     public static Word of(String value) {
         return new Word(value);
@@ -35,12 +34,12 @@ public class Word implements Comparable<Word>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Word word = (Word) o;
-        return score == word.score && Objects.equals(value, word.value);
+        return Objects.equals(value, word.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, score);
+        return Objects.hash(value);
     }
 
     @Override
