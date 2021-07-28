@@ -1,5 +1,8 @@
 package domain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static java.util.stream.Collectors.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,6 +11,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class Dictionary {
+    private static final Logger log = LoggerFactory.getLogger(Dictionary.class);
     private final Path filepath;
     private Map<Word, Set<Word>> words;
 
@@ -28,7 +32,7 @@ public class Dictionary {
                 words.computeIfAbsent(word.sorted(), (x) -> new TreeSet<>()).add(word);
             }
         } catch (IOException ex) {
-            System.err.println("Failed to parse the file.");
+            log.error("Failed to parse the file.");
         }
         return this;
     }
@@ -38,7 +42,7 @@ public class Dictionary {
             words = lines.map(Word::of)
                     .collect(groupingBy(Word::sorted, mapping(i -> i, toSet())));
         } catch (IOException ex) {
-            System.err.println("Failed to stream the file.");
+            log.error("Failed to stream the file.");
         }
         return this;
     }

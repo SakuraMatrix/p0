@@ -10,7 +10,13 @@ public class Word implements Wordable<Word>{
         return new Word(value);
     }
 
+    private static void check(boolean condition) {
+        if (!condition)
+            throw new IllegalArgumentException();
+    }
+
     public Word(String value) {
+        check(!value.isEmpty());
         this.value = value;
     }
 
