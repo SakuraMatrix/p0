@@ -44,8 +44,8 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <mainClass>Scrabble</mainClass>
-                    <commandlineArgs>words_alpha.txt cat</commandlineArgs>
+                    <mainClass>com.github.MehrabRahman.p0.Scrabble</mainClass>
+                    <commandlineArgs>-f words_alpha.txt -t cat</commandlineArgs>
                 </configuration>
             </plugin>
         </plugins>

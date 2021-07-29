@@ -1,4 +1,4 @@
-package http;
+package com.github.MehrabRahman.p0.http;
 
 import java.io.OutputStream;
 import java.io.PrintWriter;

@@ -1,4 +1,4 @@
-package domain;
+package com.github.MehrabRahman.p0.domain;
 
 import java.util.Arrays;
 import java.util.Objects;

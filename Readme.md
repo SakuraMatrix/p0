@@ -1,5 +1,5 @@
-# Scrabble tool
-Scrabble is a game where knowledge of the English language gives a player a major advantage. This CLI application to scan a dictionary and find matching words based on available tiles to make it easy to play Scrabble.
+# com.github.MehrabRahman.p0.Scrabble tool
+com.github.MehrabRahman.p0.Scrabble is a game where knowledge of the English language gives a player a major advantage. This CLI com.github.MehrabRahman.p0.application to scan a dictionary and find matching words based on available tiles to make it easy to play com.github.MehrabRahman.p0.Scrabble.
 
 ## Actors / Features
 # Actors & Features
@@ -9,7 +9,7 @@ Scrabble is a game where knowledge of the English language gives a player a majo
 	- search for words and their anagrams
 - An admin can....
 - The system...
-- The application...
+- The com.github.MehrabRahman.p0.application...
 ## Quality Requirements
 ...
 
